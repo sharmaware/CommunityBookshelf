@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1055434301309",
+    "firebase_url": "https://exp-db-8ca42.firebaseio.com",
+    "project_id": "exp-db-8ca42",
+    "storage_bucket": "exp-db-8ca42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055434301309:android:d745e347bf4f46ce",
+        "android_client_info": {
+          "package_name": "com.google.android.gms.samples.vision.barcodereader"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055434301309-6gl1bkhbncpkt0e19ueqt1cidfgah2g8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.google.android.gms.samples.vision.barcodereader",
+            "certificate_hash": "23350b8f4f6b24de03b368179958c9cee56defab"
+          }
+        },
+        {
+          "client_id": "1055434301309-gqs1abvavnmuuvo1rd80o06keeurratp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4rze713zWmbs1h507VLeW6xlRrinqU0I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055434301309-gqs1abvavnmuuvo1rd80o06keeurratp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

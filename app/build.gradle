@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '27.0.3'
+
+    defaultConfig {
+        applicationId "com.google.android.gms.samples.vision.barcodereader"
+        minSdkVersion 21
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    useLibrary 'org.apache.http.legacy'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:support-v4:25.0.0'
+    // Important - the CameraSource implementation in this project requires version 8.1 or higher.
+    implementation 'com.google.android.gms:play-services-vision:11.8.0'
+    implementation 'com.android.support:design:25.0.0'
+
+    implementation 'com.google.apis:google-api-services-books:v1-rev95-1.23.0'
+    //compile group: 'com.google.api-client', name: 'google-api-client-extensions', version: '1.6.0-beta'
+    //compile group: 'org.bouncycastle', name: 'bcprov-jdk16', version: '1.45'
+    //implementation 'com.google.firebase:firebase-database:11.2.0'
+    implementation 'com.google.firebase:firebase-firestore:11.8.0'
+    implementation 'com.google.firebase:firebase-database:11.8.0'
+//    implementation 'com.google.firebase:firebase-admin:6.2.0'
+
+    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
+    implementation 'com.android.support:support-vector-drawable:25.0.0'
+    implementation 'com.google.api-client:google-api-client:1.23.0'
+    implementation 'com.android.support:support-annotations:25.4.0'
+}
+
+
+apply plugin: 'com.google.gms.google-services'
