@@ -15,7 +15,7 @@ public class BookRecord {
     public String message;
     public String webLink;
     public String owner;
-    
+
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
