@@ -46,6 +46,7 @@ public class BookDatabase {
         bookDbEntry.put("description", book.descr);
         bookDbEntry.put("owner", book.owner);
         bookDbEntry.put("status", book.status);
+        bookDbEntry.put("thumbnail", book.thumbnail);
 
         // Add a new document with a generated ID to books collection
         db.collection("Books")
@@ -97,6 +98,7 @@ public class BookDatabase {
                         bookDbEntry.put("description", book.descr);
                         bookDbEntry.put("owner", book.owner);
                         bookDbEntry.put("status", book.status);
+                        bookDbEntry.put("thumbnail", book.thumbnail);
 
                         if(categorySnapshot.exists()) {
                             Map<String, Object> categoryObject = categorySnapshot.getData();

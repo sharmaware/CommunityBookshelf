@@ -1,4 +1,4 @@
-#Wed Jun 13 23:49:13 PDT 2018
-base.0=/Users/saarthaksharma/mycode/rajProj/android-vision/visionSamples/barcode-reader/app/build/intermediates/transforms/dexMerger/debug/44
+#Sun Aug 26 17:19:05 PDT 2018
+base.0=/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/transforms/dexMerger/debug/10
 path.0=classes.dex
 renamed.0=classes.dex

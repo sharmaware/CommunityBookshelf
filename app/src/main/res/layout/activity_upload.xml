@@ -16,27 +16,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/navigation" />
+        app:menu="@menu/navigation"
+        app:itemTextColor="@color/black"
+        app:itemBackground="@color/blue"/>
 
     <Button
         android:id="@+id/scanBarcodeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
-        android:layout_marginLeft="128dp"
+        android:layout_marginBottom="76dp"
         android:layout_marginStart="128dp"
         android:text="@string/scan_barcode"
         app:layout_constraintBottom_toBottomOf="@+id/navigation"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/bookInfo"
-        android:layout_width="367dp"
-        android:layout_height="236dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -57,5 +49,25 @@
             android:id="@+id/toolbar_title" />
 
     </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/bookInfo"
+        android:layout_width="352dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="184dp"
+        android:text="Details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+    <ImageView
+        android:id="@+id/bookImage"
+        android:layout_width="134dp"
+        android:layout_height="139dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_dashboard_black_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
 </android.support.constraint.ConstraintLayout>

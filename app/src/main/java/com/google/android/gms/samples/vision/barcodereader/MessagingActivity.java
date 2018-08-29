@@ -43,7 +43,7 @@ public class MessagingActivity extends Activity {
         db = FirebaseFirestore.getInstance();
 
 
-        //ChatMessage chatMessage = new ChatMessage("sample message", LoginActivity.mEmail).messageMap();
+        //ChatMessage chatMessage = new ChatMessage("sample message", MainScreenActivity.mEmail).messageMap();
         Log.d(TAG, "messaging activity oncreate");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.messagingToolbar);
@@ -55,25 +55,25 @@ public class MessagingActivity extends Activity {
             public void onClick(View v) {
                 EditText messageField = (EditText) findViewById(R.id.messageField);
                 if(!messageField.getText().toString().equals("")) {
-                    Map<String, Object> chatMap = new ChatMessage(messageField.getText().toString(), LoginActivity.mEmail).messageMap();
-                    Log.d(TAG, "EMAIL" + LoginActivity.mEmail);
+                    Map<String, Object> chatMap = new ChatMessage(messageField.getText().toString(), MainScreenActivity.mEmail).messageMap();
+                    Log.d(TAG, "EMAIL" + MainScreenActivity.mEmail);
 
 
-                    MessagingActivity.db.collection("Messages").document(LoginActivity.mEmail + "&" + USER).collection("messages")
+                    MessagingActivity.db.collection("Messages").document(MainScreenActivity.mEmail + "&" + USER).collection("messages")
                             .add(chatMap);
                     messageField.setText("");
                 }
 
             }
         });
-        db.collection("Messages").document(LoginActivity.mEmail + "&" + USER).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("Messages").document(MainScreenActivity.mEmail + "&" + USER).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.getResult().exists()) {
-                    db.collection("Messages").document(LoginActivity.mEmail + "&" + USER).collection("messages").addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    db.collection("Messages").document(MainScreenActivity.mEmail + "&" + USER).collection("messages").addSnapshotListener(new EventListener<QuerySnapshot>() {
                         @Override
                         public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
-                            CollectionReference collectionReference = db.collection("Messages").document(LoginActivity.mEmail + "&" + USER).collection("messages");
+                            CollectionReference collectionReference = db.collection("Messages").document(MainScreenActivity.mEmail + "&" + USER).collection("messages");
                             collectionReference.orderBy("time", Query.Direction.DESCENDING).limit(50).addSnapshotListener(new EventListener<QuerySnapshot>() {
                                 @Override
                                 public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
@@ -99,10 +99,10 @@ public class MessagingActivity extends Activity {
                     });
                 }
                 else{
-                    db.collection("Messages").document(USER + "&" + LoginActivity.mEmail).collection("messages").addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    db.collection("Messages").document(USER + "&" + MainScreenActivity.mEmail).collection("messages").addSnapshotListener(new EventListener<QuerySnapshot>() {
                         @Override
                         public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
-                            CollectionReference collectionReference = db.collection("Messages").document(LoginActivity.mEmail + "&" + USER).collection("messages");
+                            CollectionReference collectionReference = db.collection("Messages").document(MainScreenActivity.mEmail + "&" + USER).collection("messages");
                             collectionReference.orderBy("time", Query.Direction.DESCENDING).limit(50).addSnapshotListener(new EventListener<QuerySnapshot>() {
                                 @Override
                                 public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {

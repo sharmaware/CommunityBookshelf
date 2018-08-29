@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -17,6 +18,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
+
+import static android.content.ContentValues.TAG;
 
 public class myBooksActivity extends Activity {
     private static FirebaseFirestore db;
@@ -47,19 +50,31 @@ public class myBooksActivity extends Activity {
 //                    Intent myBooksIntent = new Intent(getApplicationContext(), myBooksActivity.class);
 //                    startActivity(myBooksIntent);
                         return true;
+                    case R.id.navigation_messages:
+                        //mTextMessage.setText(R.string.title_browse);
+                        Intent messageIntent = new Intent(myBooksActivity.this, MessagingActivity.class);
+                        startActivity(messageIntent);
+                        return true;
                 }
                 return false;
             }
         });
 
         Menu menu = navigationView.getMenu();
-        MenuItem menuItem = menu.getItem(2);
+        MenuItem menuItem = menu.getItem(3);
         menuItem.setChecked(true);
-        menuItem = menu.getItem(0);
-        menuItem.setChecked(false);
+        for(int i = 0; i < 3; i++) {
+            menuItem = menu.getItem(i);
+            menuItem.setChecked(false);
+        }
+
+
 
         db = FirebaseFirestore.getInstance();
-        db.collection("Users").document(LoginActivity.mEmail).collection("Books").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+        Log.d(TAG, "Fetching records of mEmail" + MainScreenActivity.mEmail);
+
+        db.collection("Users").document(MainScreenActivity.mEmail).collection("books").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 List<DocumentSnapshot> documents = task.getResult().getDocuments();
@@ -73,6 +88,7 @@ public class myBooksActivity extends Activity {
                 listView.setAdapter(adapter);
             }
         });
+        findViewById(R.id.navigation_myBooks).performClick();
     }
 
 

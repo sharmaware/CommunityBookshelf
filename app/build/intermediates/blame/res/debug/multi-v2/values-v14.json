@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/saarthaksharma/mycode/rajProj/android-vision/visionSamples/barcode-reader/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v14/values-v14.xml",
+            "outputFile": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v14/values-v14.xml",
             "map": [
                 {
-                    "source": "/Users/saarthaksharma/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.0.0.aar/87531713b2185beafc85f73e6a5e66b2/res/values-v14/values-v14.xml",
+                    "source": "/Users/rajeshsharma/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.0.0.aar/585bba4981db68dd1435a8d04e9a3430/res/values-v14/values-v14.xml",
                     "from": {
                         "startLines": "2,7,8,9,15,21,22,23,24,25,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",

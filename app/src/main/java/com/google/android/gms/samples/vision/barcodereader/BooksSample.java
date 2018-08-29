@@ -108,6 +108,14 @@ public class BooksSample {
             book.title = volumeInfo.getTitle();
             book.categories = volumeInfo.getCategories();
 
+            Volume.VolumeInfo.ImageLinks links = volumeInfo.getImageLinks();
+            if (links != null) {
+                 book.thumbnail = links.getSmallThumbnail();
+            } else {
+                book.thumbnail = null;
+            }
+            Log.d(TAG, "URL(s): " + book.thumbnail);
+
             // Author(s).
             java.util.List<String> authors = volumeInfo.getAuthors();
             if (authors != null && !authors.isEmpty()) {
@@ -177,7 +185,7 @@ public class BooksSample {
             //System.out.println(volumeInfo.getInfoLink());
             Log.d(TAG, volumeInfo.getInfoLink());
             book.webLink = volumeInfo.getInfoLink();
-            book.owner = LoginActivity.mEmail;
+            book.owner = MainScreenActivity.mEmail;
             book.status = "available";
         }
         //System.out.println("==========");

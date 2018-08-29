@@ -75,6 +75,13 @@ public class BrowseActivity extends AppCompatActivity {
                         Intent myBooksIntent = new Intent(BrowseActivity.this, myBooksActivity.class);
                         startActivity(myBooksIntent);
                         return true;
+                    case R.id.navigation_messages:
+                        //mTextMessage.setText(R.string.title_browse);
+                        Intent messageIntent = new Intent(BrowseActivity.this, MessagingActivity.class);
+                        startActivity(messageIntent);
+                        return true;
+
+
                 }
                 return false;
             }
@@ -84,6 +91,12 @@ public class BrowseActivity extends AppCompatActivity {
         Menu menu = navigationView.getMenu();
         MenuItem menuItem = menu.getItem(0);
         menuItem.setChecked(true);
+        for(int i = 0; i < 3; i++) {
+            if(i != 0) {
+                menuItem = menu.getItem(i);
+                menuItem.setChecked(false);
+            }
+        }
 
 
         categories = new ArrayList<>();
@@ -156,8 +169,8 @@ public class BrowseActivity extends AppCompatActivity {
 //            }
 //        });
 
-    Log.d(TAG, "End of BrowseActivity");
-
+        Log.d(TAG, "End of BrowseActivity");
+        findViewById(R.id.navigation_browse).performClick();
     }
 }
 

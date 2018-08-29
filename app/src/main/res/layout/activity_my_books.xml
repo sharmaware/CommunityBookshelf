@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+
     tools:context=".myBooksActivity">
 
     <android.support.design.widget.BottomNavigationView
@@ -15,7 +17,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/navigation" />
+        app:menu="@menu/navigation"
+        app:itemTextColor="@color/black"
+        app:itemBackground="@color/blue"/>
+
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar3"
@@ -33,7 +38,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="My Books" />
+            android:text="My Books"
+            android:textColor="#000000"/>
 
 
     </android.support.v7.widget.Toolbar>
@@ -41,22 +47,14 @@
     <ListView
         android:id="@+id/myBooksList"
         android:layout_width="373dp"
-        android:layout_height="202dp"
+        android:layout_height="444dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar3" />
-
-    <TextView
-        android:id="@+id/requestsLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Requests Go Here"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myBooksList" />
 
 </android.support.constraint.ConstraintLayout>
