@@ -61,6 +61,8 @@ package com.google.android.gms.samples.vision.barcodereader;
 
         import static android.content.ContentValues.TAG;
 
+
+
 public class MainScreenActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener, GoogleApiClient.ConnectionCallbacks {
@@ -112,7 +114,7 @@ public class MainScreenActivity extends AppCompatActivity implements
         // Other buttons
         //findViewById(R.id.button_email_sign_in).setOnClickListener(this);
         //findViewById(R.id.button_google_revoke).setOnClickListener(this);
-        findViewById(R.id.button_google_sign_out).setOnClickListener(this);
+        //findViewById(R.id.button_google_sign_out).setOnClickListener(this);
         //findViewById(R.id.button_email_save).setOnClickListener(this);
     }
 
@@ -256,6 +258,8 @@ public class MainScreenActivity extends AppCompatActivity implements
             MainScreenActivity.mEmail = mEmail;
             MainScreenActivity.mDisplayName = mDisplayName;
 
+            ((MyApplication) this.getApplication()).setUserEmail(MainScreenActivity.mEmail);
+
             mAuthTask = new MainScreenActivity.UserLoginTask();
             mAuthTask.execute((Void) null);
 
@@ -271,7 +275,7 @@ public class MainScreenActivity extends AppCompatActivity implements
         }
 
         findViewById(R.id.button_google_sign_in).setEnabled(!isSignedIn);
-        findViewById(R.id.button_google_sign_out).setEnabled(isSignedIn);
+        //findViewById(R.id.button_google_sign_out).setEnabled(isSignedIn);
         //findViewById(R.id.button_google_revoke).setEnabled(isSignedIn);
     }
 
@@ -416,9 +420,9 @@ public class MainScreenActivity extends AppCompatActivity implements
             //case R.id.button_google_revoke:
             //    onGoogleRevokeClicked();
             //    break;
-            case R.id.button_google_sign_out:
-                onGoogleSignOutClicked();
-                break;
+            //case R.id.button_google_sign_out:
+            //    onGoogleSignOutClicked();
+            //    break;
             //case R.id.button_email_sign_in:
             //    onEmailSignInClicked();
             //    break;
@@ -476,6 +480,8 @@ public class MainScreenActivity extends AppCompatActivity implements
                                 Log.d(TAG, "able to find user in database 2");
                                 Log.d(TAG, "MainScreenActivity.success: " + MainScreenActivity.success);
                                 MainScreenActivity.mEmail = mEmail;
+
+                                //((MyApplication) this.getApplication()).setUserEmail(MainScreenActivity.mEmail);
                             } else {
                                 MainScreenActivity.success = false;
                             }
@@ -491,6 +497,8 @@ public class MainScreenActivity extends AppCompatActivity implements
                             db.collection("Users").document(mEmail).set(userObject);
                             MainScreenActivity.success = true;
                             MainScreenActivity.mEmail = mEmail;
+                            //MyApplication.setUserEmail(MainScreenActivity.mEmail);
+                            //((MyApplication) this.getApplication()).setUserEmail(MainScreenActivity.mEmail);
 
                         }
                     } else {

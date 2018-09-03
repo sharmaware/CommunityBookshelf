@@ -50,6 +50,20 @@ public class BrowseActivity extends AppCompatActivity {
 //        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_browse);
 
+        getSupportActionBar().setTitle("Browse by category"); // for set actionbar title
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true); // for add back arrow in action bar
+
+        /*
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            // TODO Auto-generated method stub
+            int id = item.getItemId();
+            if (id == android.R.id.home) {
+                finish();
+            }
+            return super.onOptionsItemSelected(item);
+        */
+
         BottomNavigationView navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         //mTextMessage = (TextView) findViewById(R.id.message);
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -77,7 +91,7 @@ public class BrowseActivity extends AppCompatActivity {
                         return true;
                     case R.id.navigation_messages:
                         //mTextMessage.setText(R.string.title_browse);
-                        Intent messageIntent = new Intent(BrowseActivity.this, MessagingActivity.class);
+                        Intent messageIntent = new Intent(BrowseActivity.this, MessagesActivity.class);
                         startActivity(messageIntent);
                         return true;
 

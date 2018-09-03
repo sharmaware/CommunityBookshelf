@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
 
         <!-- android theme colors -->
         <item name="android:colorPrimary">@color/theme_dialer_primary</item>
@@ -62,4 +62,12 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textColor">#FFF</item>
     </style>
+
+    <!-- base set of styles that apply to all versions -->
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:colorPrimaryDark">@color/color_set_1_primary</item>
+        <item name="android:colorPrimary">@color/color_set_1_primary</item>
+        <item name="android:colorAccent">@color/color_set_1_accent</item>
+    </style>
+
 </resources>

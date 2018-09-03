@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,7 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class UploadActivity extends Activity {
+public class UploadActivity extends AppCompatActivity {
 
     private static final int RC_BARCODE_CAPTURE = 9001;
     private static final String TAG = "BarcodeMain";
@@ -46,6 +47,9 @@ public class UploadActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
+
+        getSupportActionBar().setTitle("Scan and Upload"); // for set actionbar title
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true); // for add back arrow in action bar
 
         BottomNavigationView navigationView = (BottomNavigationView) findViewById(R.id.navigation);
 
@@ -70,7 +74,7 @@ public class UploadActivity extends Activity {
                         return true;
                     case R.id.navigation_messages:
                         //mTextMessage.setText(R.string.title_browse);
-                        Intent messageIntent = new Intent(UploadActivity.this, MessagingActivity.class);
+                        Intent messageIntent = new Intent(UploadActivity.this, MessagesActivity.class);
                         startActivity(messageIntent);
                         return true;
                 }

@@ -17,7 +17,7 @@ public class ChatMessage {
         this.messageText = messageText;
         this.messageUser = messageUser;
 
-        messageTime = new Date().getTime();
+        messageTime = new Date().getTime() - 7*60*60*1000;
     }
 
     public ChatMessage() {

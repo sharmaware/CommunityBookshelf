@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -26,7 +29,7 @@ import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
-public class BookDisplayActivity extends Activity {
+public class BookDisplayActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     public static List<String> owners;
     @Override
@@ -34,9 +37,52 @@ public class BookDisplayActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_display);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.BookDisplayToolbar);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.BookDisplayToolbar);
         String title = getIntent().getStringExtra("name");
-        toolbar.setTitle(title);
+        //toolbar.setTitle(title);
+
+        getSupportActionBar().setTitle(title); // for set actionbar title
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true); // for add back arrow in action bar
+
+
+        BottomNavigationView navigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        //mTextMessage = (TextView) findViewById(R.id.message);
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_browse:
+                        //mTextMessage.setText(R.string.title_browse);
+//                    Intent browseIntent = new Intent(BrowseActivity.this, BrowseActivity.class);
+//                    startActivity(browseIntent);
+                        return true;
+                    case R.id.navigation_upload:
+                        Intent intent = new Intent(BookDisplayActivity.this, UploadActivity.class);
+                        //intent.putExtra(BarcodeCaptureActivity.AutoFocus, autoFocus.isChecked());
+
+                        //Make AutoFocus always True
+                        startActivity(intent);
+                        return true;
+                    case R.id.navigation_myBooks:
+                        //mTextMessage.setText(R.string.title_myBooks);
+                        Log.d("aldsk", "myBooks intent");
+                        Intent myBooksIntent = new Intent(BookDisplayActivity.this, myBooksActivity.class);
+                        startActivity(myBooksIntent);
+                        return true;
+                    case R.id.navigation_messages:
+                        //mTextMessage.setText(R.string.title_browse);
+                        Intent messageIntent = new Intent(BookDisplayActivity.this, MessagesActivity.class);
+                        messageIntent.putExtra("login email", MainScreenActivity.mEmail);
+                        startActivity(messageIntent);
+                        return true;
+
+
+                }
+                return false;
+            }
+        });
+
 
         db = FirebaseFirestore.getInstance();
         CollectionReference books = db.collection("Books");
@@ -51,7 +97,7 @@ public class BookDisplayActivity extends Activity {
                         Map<String, Object> book = bookMatches.get(0).getData();
                         //TODO: add authors to text
                         String text = "Title: " + book.get("title").toString() +"\n" +
-                                "ISBN: " + book.get("isbn").toString() + "\n" +
+                                "ISBN: " + book.get("isbn").toString() + "\n\n" +
                                 "Description: " + book.get("description") + "\n";
                         Log.d(TAG, book.get("authors").toString());
                         Log.d(TAG, "here");

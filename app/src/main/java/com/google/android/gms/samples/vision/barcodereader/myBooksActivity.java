@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,7 +22,7 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-public class myBooksActivity extends Activity {
+public class myBooksActivity extends AppCompatActivity {
     private static FirebaseFirestore db;
 
 
@@ -29,6 +30,12 @@ public class myBooksActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_books);
+
+
+        getSupportActionBar().setTitle("My Books"); // for set actionbar title
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true); // for add back arrow in action bar
+
+
         BottomNavigationView navigationView = (BottomNavigationView) findViewById(R.id.navigation);
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -52,7 +59,7 @@ public class myBooksActivity extends Activity {
                         return true;
                     case R.id.navigation_messages:
                         //mTextMessage.setText(R.string.title_browse);
-                        Intent messageIntent = new Intent(myBooksActivity.this, MessagingActivity.class);
+                        Intent messageIntent = new Intent(myBooksActivity.this, MessagesActivity.class);
                         startActivity(messageIntent);
                         return true;
                 }

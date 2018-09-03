@@ -52,22 +52,22 @@ public final class R {
         public static final int googleg_standard_color_18 = 0x7f06006c;
     }
     public static final class id {
-        public static final int adjust_height = 0x7f070018;
-        public static final int adjust_width = 0x7f070019;
-        public static final int auto = 0x7f07001d;
-        public static final int center = 0x7f07002d;
-        public static final int dark = 0x7f07003a;
-        public static final int email = 0x7f070046;
-        public static final int icon_only = 0x7f07005c;
-        public static final int light = 0x7f070066;
-        public static final int none = 0x7f07007e;
-        public static final int normal = 0x7f07007f;
-        public static final int radio = 0x7f07008e;
-        public static final int standard = 0x7f0700b7;
-        public static final int text = 0x7f0700be;
-        public static final int text2 = 0x7f0700bf;
-        public static final int wide = 0x7f0700d3;
-        public static final int wrap_content = 0x7f0700d6;
+        public static final int adjust_height = 0x7f070017;
+        public static final int adjust_width = 0x7f070018;
+        public static final int auto = 0x7f07001c;
+        public static final int center = 0x7f070029;
+        public static final int dark = 0x7f070036;
+        public static final int email = 0x7f070042;
+        public static final int icon_only = 0x7f070058;
+        public static final int light = 0x7f070062;
+        public static final int none = 0x7f070079;
+        public static final int normal = 0x7f07007a;
+        public static final int radio = 0x7f070089;
+        public static final int standard = 0x7f0700b2;
+        public static final int text = 0x7f0700b9;
+        public static final int text2 = 0x7f0700ba;
+        public static final int wide = 0x7f0700cd;
+        public static final int wrap_content = 0x7f0700d0;
     }
     public static final class integer {
         public static final int google_play_services_version = 0x7f080006;

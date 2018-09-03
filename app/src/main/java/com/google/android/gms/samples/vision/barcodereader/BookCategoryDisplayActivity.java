@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 //import com.google.cloud.firestore.CollectionReference;
 //import com.google.cloud.firestore.DocumentSnapshot;
@@ -22,17 +22,15 @@ import android.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-public class BookCategoryDisplayActivity extends Activity {
+public class BookCategoryDisplayActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     public static ListView listView;
     public static String [] documentArray = null;
@@ -43,8 +41,14 @@ public class BookCategoryDisplayActivity extends Activity {
         setContentView(R.layout.activity_book_category_display);
 
         String category = getIntent().getStringExtra("category");
-        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.categoryToolbar);
-        toolbar.setTitle(category);
+
+        getSupportActionBar().setTitle(category); // for set actionbar title
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true); // for add back arrow in action bar
+        //getSupportActionBar().setDisplayOptions(    );
+
+
+        //android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.UserEmailToolbar);
+        //toolbar.setTitle(category);
 
         db.collection("Categories").document(category).collection("Books").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -66,7 +70,7 @@ public class BookCategoryDisplayActivity extends Activity {
 
                         ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
                                 android.R.layout.simple_list_item_1, BookCategoryDisplayActivity.documentArray);
-                        BookCategoryDisplayActivity.listView = (ListView) findViewById(R.id.bookCategoryList);
+                        BookCategoryDisplayActivity.listView = (ListView) findViewById(R.id.userEmailList);
                         BookCategoryDisplayActivity.listView.setAdapter(adapter);
 
 

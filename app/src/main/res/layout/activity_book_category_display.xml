@@ -6,23 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".BookCategoryDisplayActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/categoryToolbar"
-        android:layout_width="380dp"
-        android:layout_height="58dp"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ListView
-        android:id="@+id/bookCategoryList"
+        android:id="@+id/userEmailList"
         android:layout_width="369dp"
         android:layout_height="399dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categoryToolbar" />
+        tools:layout_editor_absoluteY="66dp" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:addStatesFromChildren="true"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:itemTextColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation"
+        app:itemBackground="@color/blue"
+
+        />
+
 </android.support.constraint.ConstraintLayout>

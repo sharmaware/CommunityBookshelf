@@ -129,6 +129,7 @@
     </string>
     <string name="title_activity_book_display">BookDisplayActivity</string>
     <string name="title_activity_messaging">MessagingActivity</string>
+    <string name="title_activity_messages">MessagesActivity</string>
 
 
     <string name="app_name">Firebase Cloud Messaging</string>

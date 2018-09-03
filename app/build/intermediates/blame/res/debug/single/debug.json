@@ -712,6 +712,10 @@
         "source": "/Users/rajeshsharma/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.0.0.aar/585bba4981db68dd1435a8d04e9a3430/res/layout/abc_action_bar_up_container.xml"
     },
     {
+        "merged": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/res/merged/debug/layout_activity_messages.xml.flat",
+        "source": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/src/main/res/layout/activity_messages.xml"
+    },
+    {
         "merged": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
         "source": "/Users/rajeshsharma/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.0.0.aar/585bba4981db68dd1435a8d04e9a3430/res/drawable-xhdpi-v4/abc_list_pressed_holo_dark.9.png"
     },
@@ -1214,6 +1218,10 @@
     {
         "merged": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/res/merged/debug/drawable_abc_btn_radio_material.xml.flat",
         "source": "/Users/rajeshsharma/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.0.0.aar/585bba4981db68dd1435a8d04e9a3430/res/drawable/abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/res/merged/debug/drawable_ic_book_upload_image.jpg.flat",
+        "source": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/src/main/res/drawable/ic_book_upload_image.jpg"
     },
     {
         "merged": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
@@ -1756,12 +1764,12 @@
         "source": "/Users/rajeshsharma/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.0.0.aar/585bba4981db68dd1435a8d04e9a3430/res/drawable-xxhdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "/Users/rajeshsharma/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.0.0.aar/585bba4981db68dd1435a8d04e9a3430/res/drawable-mdpi-v4/notification_bg_normal.9.png"
-    },
-    {
         "merged": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/res/merged/debug/drawable_ic_mybooks.png.flat",
         "source": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/src/main/res/drawable/ic_mybooks.png"
+    },
+    {
+        "merged": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/rajeshsharma/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.0.0.aar/585bba4981db68dd1435a8d04e9a3430/res/drawable-mdpi-v4/notification_bg_normal.9.png"
     },
     {
         "merged": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/res/merged/debug/layout-land-v17_activity_main.xml.flat",
