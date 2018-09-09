@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -15,25 +14,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.gms.vision.barcode.Barcode;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class UploadActivity extends AppCompatActivity {
 
@@ -69,7 +57,7 @@ public class UploadActivity extends AppCompatActivity {
                         return true;
                     case R.id.navigation_myBooks:
                         //mTextMessage.setText(R.string.title_myBooks);
-                        Intent myBooksIntent = new Intent(UploadActivity.this, myBooksActivity.class);
+                        Intent myBooksIntent = new Intent(UploadActivity.this, MyBooksActivity.class);
                         startActivity(myBooksIntent);
                         return true;
                     case R.id.navigation_messages:
@@ -77,6 +65,13 @@ public class UploadActivity extends AppCompatActivity {
                         Intent messageIntent = new Intent(UploadActivity.this, MessagesActivity.class);
                         startActivity(messageIntent);
                         return true;
+                    case R.id.navigation_home:
+                        //mTextMessage.setText(R.string.title_browse);
+                        Intent dashBoardIntent = new Intent(UploadActivity.this, DashBoardActivity.class);
+                        startActivity(dashBoardIntent);
+                        return true;
+
+
                 }
                 return false;
             }
@@ -222,6 +217,7 @@ public class UploadActivity extends AppCompatActivity {
                     URL url = new URL(thumbnail);
                     InputStream content = (InputStream) url.getContent();
                     d = Drawable.createFromStream(content, "src");
+                    setText((TextView) findViewById(R.id.bookInfo), bookDetails, d, (ImageView) findViewById(R.id.bookImage));
                 }
                 catch(MalformedURLException e){
 
@@ -229,7 +225,7 @@ public class UploadActivity extends AppCompatActivity {
                 catch(IOException e){}
 
 
-                setText((TextView) findViewById(R.id.bookInfo), bookDetails, d, (ImageView) findViewById(R.id.bookImage));
+
                 //ImageView iv =  (ImageView) findViewById(R.id.bookImage);
 
 

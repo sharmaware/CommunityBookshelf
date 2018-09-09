@@ -4,7 +4,7 @@
     <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
     <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
     <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
-    <string name="title_activity_main">Barcode Reader Sample</string>
+    <string name="title_activity_main">Community Bookshelf</string>
     <string name="barcode_header">Click &quot;Read Barcode&quot; to read a barcode</string>
     <string name="read_barcode">Read Barcode</string>
     <string name="auto_focus">Auto Focus</string>
@@ -23,6 +23,7 @@
     <string name="title_activity_upload">UploadActivity</string>
     <string name="scan_barcode">Scan Barcode</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="title_home">Home</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -128,8 +129,11 @@
         completions."
     </string>
     <string name="title_activity_book_display">BookDisplayActivity</string>
+    <string name="title_activity_my_book_display">BookDisplayActivity</string>
     <string name="title_activity_messaging">MessagingActivity</string>
     <string name="title_activity_messages">MessagesActivity</string>
+    <string name="title_activity_messaging_conversation">MessagesActivity</string>
+    <string name="title_activity_dashboard">DashBoardActivity</string>
 
 
     <string name="app_name">Firebase Cloud Messaging</string>

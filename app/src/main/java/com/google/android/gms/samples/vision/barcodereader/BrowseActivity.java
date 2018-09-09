@@ -1,6 +1,7 @@
 package com.google.android.gms.samples.vision.barcodereader;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -9,17 +10,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.vision.barcode.Barcode;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -86,13 +84,18 @@ public class BrowseActivity extends AppCompatActivity {
                     case R.id.navigation_myBooks:
                         //mTextMessage.setText(R.string.title_myBooks);
                         Log.d("aldsk", "myBooks intent");
-                        Intent myBooksIntent = new Intent(BrowseActivity.this, myBooksActivity.class);
+                        Intent myBooksIntent = new Intent(BrowseActivity.this, MyBooksActivity.class);
                         startActivity(myBooksIntent);
                         return true;
                     case R.id.navigation_messages:
                         //mTextMessage.setText(R.string.title_browse);
                         Intent messageIntent = new Intent(BrowseActivity.this, MessagesActivity.class);
                         startActivity(messageIntent);
+                        return true;
+                    case R.id.navigation_home:
+                        //mTextMessage.setText(R.string.title_browse);
+                        Intent dashBoardIntent = new Intent(BrowseActivity.this, DashBoardActivity.class);
+                        startActivity(dashBoardIntent);
                         return true;
 
 
@@ -132,7 +135,35 @@ public class BrowseActivity extends AppCompatActivity {
                             }
 
                             ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),
-                                    android.R.layout.simple_list_item_1, categoriesArray);
+                                    android.R.layout.simple_list_item_1, categoriesArray) {
+                                @Override
+                                public View getView(int position, View convertView, ViewGroup parent) {
+                                    View view = super.getView(position, convertView, parent);
+
+                                    TextView textView = (TextView) view.findViewById(android.R.id.text1);
+
+                                    /*YOUR CHOICE OF COLOR*/
+                                    textView.setTextColor(Color.BLUE);
+                                    return view;
+
+                                }
+                            };
+
+//                            ArrayAdapter<String> adapter=new ArrayAdapter<String>(
+//                                    this, android.R.layout.simple_list_item_1, listItems){
+//
+//                                @Override
+//                                public View getView(int position, View convertView, ViewGroup parent) {
+//                                    View view =super.getView(position, convertView, parent);
+//
+//                                    TextView textView=(TextView) view.findViewById(android.R.id.text1);
+//
+//                                    /*YOUR CHOICE OF COLOR*/
+//                                    textView.setTextColor(Color.BLUE);
+//
+//                                    return view;
+//                                }
+//                            };
                             ListView listView = (ListView) findViewById(R.id.bookList);
 
                             listView.setAdapter(adapter);

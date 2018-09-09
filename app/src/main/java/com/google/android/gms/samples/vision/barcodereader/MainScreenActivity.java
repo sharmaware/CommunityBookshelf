@@ -264,7 +264,8 @@ public class MainScreenActivity extends AppCompatActivity implements
             mAuthTask.execute((Void) null);
 
             /* Go to next activity */
-            Intent intent = new Intent(this, BrowseActivity.class);
+            Intent intent = new Intent(this, DashBoardActivity.class);
+            //Intent intent = new Intent(this, BrowseActivity.class);
             startActivity(intent);
 
 
@@ -482,6 +483,10 @@ public class MainScreenActivity extends AppCompatActivity implements
                                 MainScreenActivity.mEmail = mEmail;
 
                                 //((MyApplication) this.getApplication()).setUserEmail(MainScreenActivity.mEmail);
+
+                                MyApplication loginEmail = (MyApplication)getApplication();
+                                loginEmail.setUserEmail(MainScreenActivity.mEmail);
+
                             } else {
                                 MainScreenActivity.success = false;
                             }
@@ -499,6 +504,9 @@ public class MainScreenActivity extends AppCompatActivity implements
                             MainScreenActivity.mEmail = mEmail;
                             //MyApplication.setUserEmail(MainScreenActivity.mEmail);
                             //((MyApplication) this.getApplication()).setUserEmail(MainScreenActivity.mEmail);
+
+                            MyApplication loginEmail = (MyApplication)getApplication();
+                            loginEmail.setUserEmail(MainScreenActivity.mEmail);
 
                         }
                     } else {

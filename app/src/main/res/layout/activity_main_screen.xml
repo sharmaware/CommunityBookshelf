@@ -45,13 +45,13 @@
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="408dp"
-            android:layout_height="wrap_content"
+            android:layout_height="551dp"
             android:adjustViewBounds="false"
             android:cropToPadding="true"
             android:scaleType="fitStart"
             app:srcCompat="@drawable/logo_community_book_shelf"
-            tools:layout_editor_absoluteX="-18dp"
-            tools:layout_editor_absoluteY="0dp" />
+            card_view:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="2dp" />
 
         <TextView
             android:id="@+id/text_google_status"

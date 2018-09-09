@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DashBoardActivity">
+
+
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:orientation="vertical" >-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/totalBooksAndTraded"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="115dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:background="#87CEFA"-->
+            <!--android:gravity="center"-->
+            <!--android:text="Total Books Available in Community Bookshelf 45,000. Total Books uploaded by you 32. "-->
+            <!--android:textColor="@color/black"/>-->
+
+             <!--/>-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/booksSpace"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_weight="1"-->
+
+            <!--/>-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/booksTraded"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="115dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:background="#87CEFA"-->
+            <!--android:gravity="center"-->
+            <!--android:text="Total Books Exchanged or traded 7 "-->
+
+            <!--/>-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/booksSpace"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_weight="1"-->
+
+            <!--/>-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/books_my_upload_and_messages"-->
+            <!--android:layout_width="match_parent"-->
+
+            <!--android:layout_height="115dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:background="#87CEFA"-->
+            <!--android:gravity="center"-->
+            <!--android:text="You have 5 new Messages "-->
+          <!--/>-->
+
+    <!--</LinearLayout>-->
+
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:addStatesFromChildren="true"
+        android:background="?android:attr/windowBackground"
+        app:itemBackground="@color/blue"
+        app:itemTextColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation"></android.support.design.widget.BottomNavigationView>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,9 +1,7 @@
 package com.google.android.gms.samples.vision.barcodereader;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -14,30 +12,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.vision.barcode.Barcode;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
@@ -50,6 +35,7 @@ public class MessagesActivity extends AppCompatActivity {
 
     public static String loginEmail = "sample_user3@example.com";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +44,12 @@ public class MessagesActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Messages"); // for set actionbar title
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true); // for add back arrow in action bar
 
-        loginEmail = getIntent().getStringExtra("login email");
+        //loginEmail = getIntent().getStringExtra("login email");
+
+        MyApplication loginEmailObject = (MyApplication)getApplication();
+        loginEmail = loginEmailObject.getUserEmail();
+
+        Log.d(TAG, "login Email in onCreate: " + loginEmail);
 
         BottomNavigationView navigationView = (BottomNavigationView) findViewById(R.id.navigation);
 
@@ -69,25 +60,34 @@ public class MessagesActivity extends AppCompatActivity {
                     case R.id.navigation_browse:
                         //mTextMessage.setText(R.string.title_browse);
                         Intent browseIntent = new Intent(MessagesActivity.this, BrowseActivity.class);
+                        browseIntent.putExtra("login email", loginEmail);
                         startActivity(browseIntent);
                         return true;
                     case R.id.navigation_upload:
                         //mTextMessage.setText(R.string.title_upload);
                         Intent uploadIntent = new Intent(MessagesActivity.this, BarcodeCaptureActivity.class);
+                        uploadIntent.putExtra("login email", loginEmail);
                         startActivity(uploadIntent);
                         return true;
                     case R.id.navigation_myBooks:
                         //mTextMessage.setText(R.string.title_myBooks);
-                        Intent myBooksIntent = new Intent(MessagesActivity.this, myBooksActivity.class);
-                        myBooksIntent.putExtra("login email", MainScreenActivity.mEmail);
+                        Intent myBooksIntent = new Intent(MessagesActivity.this, MyBooksActivity.class);
+                        myBooksIntent.putExtra("login email", loginEmail);
                         startActivity(myBooksIntent);
                         return true;
                     case R.id.navigation_messages:
                         //mTextMessage.setText(R.string.title_browse);
                         Intent messageIntent = new Intent(MessagesActivity.this, MessagesActivity.class);
-                        messageIntent.putExtra("login email", MainScreenActivity.mEmail);
+                        messageIntent.putExtra("login email", loginEmail);
                         startActivity(messageIntent);
                         return true;
+                    case R.id.navigation_home:
+                        //mTextMessage.setText(R.string.title_browse);
+                        Intent dashBoardIntent = new Intent(MessagesActivity.this, DashBoardActivity.class);
+                        startActivity(dashBoardIntent);
+                        return true;
+
+
                 }
                 return false;
             }
@@ -152,6 +152,8 @@ public class MessagesActivity extends AppCompatActivity {
 
 
                             if (userConversations > 0 ) {
+
+
                                 ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
                                         android.R.layout.simple_list_item_1, MessagesActivity.userEmailArray);
                                 MessagesActivity.listView = (ListView) findViewById(R.id.userEmailList);
@@ -163,7 +165,7 @@ public class MessagesActivity extends AppCompatActivity {
                                         @Override
                                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                             String title = ((TextView) view).getText().toString();
-                                            Intent intent = new Intent(MessagesActivity.this, MessagingActivity.class);
+                                            Intent intent = new Intent(MessagesActivity.this, MessagingConversationActivity.class);
                                             intent.putExtra("name", title);
                                             startActivity(intent);
                                         }

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Sep 02 19:14:56 PDT 2018
+#Tue Sep 04 08:41:28 PDT 2018
 2.base=/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/transforms/dexMerger/debug/16
 5.set=DEX
 0.path=classes.dex

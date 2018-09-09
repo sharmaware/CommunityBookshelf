@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 
 
-    tools:context=".myBooksActivity">
+    tools:context=".MyBooksActivity">
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

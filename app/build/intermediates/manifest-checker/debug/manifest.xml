@@ -77,8 +77,11 @@
             android:name="com.google.android.gms.samples.vision.barcodereader.BrowseActivity"
             android:label="@string/title_activity_browse" />
         <activity
-            android:name="com.google.android.gms.samples.vision.barcodereader.myBooksActivity"
+            android:name="com.google.android.gms.samples.vision.barcodereader.MyBooksActivity"
             android:label="@string/title_activity_my_books" />
+        <activity
+            android:name="com.google.android.gms.samples.vision.barcodereader.MyBookDisplayActivity"
+            android:label="@string/title_activity_my_book_display" />
         <activity
             android:name="com.google.android.gms.samples.vision.barcodereader.UploadActivity"
             android:label="@string/title_activity_upload" />
@@ -98,8 +101,12 @@
             android:name="com.google.android.gms.samples.vision.barcodereader.MessagingActivity"
             android:label="@string/title_activity_messaging" />
         <activity
-            android:name="com.google.android.gms.samples.vision.barcodereader.MasterActivity"
-            android:label="MasterActivity" />
+            android:name="com.google.android.gms.samples.vision.barcodereader.MessagingConversationActivity"
+            android:label="@string/title_activity_messaging_conversation" />
+        <activity
+            android:name="com.google.android.gms.samples.vision.barcodereader.DashBoardActivity"
+            android:label="@string/title_activity_dashboard" />
+
         <!-- Firebase start -->
         <service android:name="com.google.android.gms.samples.vision.barcodereader.MyFirebaseInstanceIDService" >
             <intent-filter>

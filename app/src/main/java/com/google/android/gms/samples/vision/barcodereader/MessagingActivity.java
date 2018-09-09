@@ -2,11 +2,9 @@ package com.google.android.gms.samples.vision.barcodereader;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,10 +15,6 @@ import android.widget.ListView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -28,14 +22,11 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import static android.content.ContentValues.TAG;
-import static com.google.firebase.firestore.Query.Direction.DESCENDING;
 
 
 public class MessagingActivity extends AppCompatActivity {
@@ -43,6 +34,7 @@ public class MessagingActivity extends AppCompatActivity {
     public static String USER = "sample_user2@example.com";
     public static String messageRecord = "";
     final static SimpleDateFormat sfd = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+    public static String loginEmail = "sample_user3@example.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +45,13 @@ public class MessagingActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle(USER); // for set actionbar title
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true); // for add back arrow in action bar
+
+        MyApplication loginEmailObject = (MyApplication)getApplication();
+        loginEmail = loginEmailObject.getUserEmail();
+
+        Log.d(TAG, "login Email in onCreate: " + loginEmail);
+
+
         BottomNavigationView navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         //mTextMessage = (TextView) findViewById(R.id.message);
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -63,7 +62,7 @@ public class MessagingActivity extends AppCompatActivity {
                     case R.id.navigation_browse:
                         //mTextMessage.setText(R.string.title_browse);
                     Intent browseIntent = new Intent(MessagingActivity.this, BrowseActivity.class);
-                        browseIntent.putExtra("login email", MainScreenActivity.mEmail);
+                        browseIntent.putExtra("login email", loginEmail);
                     startActivity(browseIntent);
                         return true;
                     case R.id.navigation_upload:
@@ -71,22 +70,29 @@ public class MessagingActivity extends AppCompatActivity {
                         //intent.putExtra(BarcodeCaptureActivity.AutoFocus, autoFocus.isChecked());
 
                         //Make AutoFocus always True
-                        intent.putExtra("login email", MainScreenActivity.mEmail);
+                        intent.putExtra("login email", loginEmail);
                         startActivity(intent);
                         return true;
                     case R.id.navigation_myBooks:
                         //mTextMessage.setText(R.string.title_myBooks);
                         Log.d("aldsk", "myBooks intent");
-                        Intent myBooksIntent = new Intent(MessagingActivity.this, myBooksActivity.class);
-                        myBooksIntent.putExtra("login email", MainScreenActivity.mEmail);
+                        Intent myBooksIntent = new Intent(MessagingActivity.this, MyBooksActivity.class);
+                        myBooksIntent.putExtra("login email", loginEmail);
                         startActivity(myBooksIntent);
                         return true;
                     case R.id.navigation_messages:
                         //mTextMessage.setText(R.string.title_browse);
                         Intent messageIntent = new Intent(MessagingActivity.this, MessagesActivity.class);
-                        messageIntent.putExtra("login email", MainScreenActivity.mEmail);
+                        messageIntent.putExtra("login email", loginEmail);
                         startActivity(messageIntent);
                         return true;
+                    case R.id.navigation_home:
+                        //mTextMessage.setText(R.string.title_browse);
+                        Intent dashBoardIntent = new Intent(MessagingActivity.this, DashBoardActivity.class);
+                        startActivity(dashBoardIntent);
+                        return true;
+
+
 
 
                 }
@@ -103,11 +109,11 @@ public class MessagingActivity extends AppCompatActivity {
 
         //Toolbar toolbar = (Toolbar) findViewById(R.id.messagingToolbar);
         //toolbar.setTitle(USER);
-        if (MainScreenActivity.mEmail.compareTo(USER) > 0) {
-            messageRecord = USER + "," + MainScreenActivity.mEmail;
+        if (loginEmail.compareTo(USER) > 0) {
+            messageRecord = USER + "," + loginEmail;
 
         } else {
-            messageRecord = MainScreenActivity.mEmail + "," + USER;
+            messageRecord = loginEmail + "," + USER;
         }
 
         Button sendButton = (Button) findViewById(R.id.sendButton);
@@ -117,11 +123,11 @@ public class MessagingActivity extends AppCompatActivity {
                 EditText messageField = (EditText) findViewById(R.id.messageField);
                 if (!messageField.getText().toString().equals("")) {
 
-                    Log.d(TAG, "EMAIL" + MainScreenActivity.mEmail);
+                    Log.d(TAG, "EMAIL" + loginEmail);
 
 
                     Log.d(TAG, "messageRecord" + messageRecord);
-                    Map<String, Object> chatMap = new ChatMessage(messageField.getText().toString(), MainScreenActivity.mEmail).messageMap();
+                    Map<String, Object> chatMap = new ChatMessage(messageField.getText().toString(), loginEmail).messageMap();
 
                     Map<String, Object> userEmailHashMap = new HashMap<>();
                     userEmailHashMap.put("userEmailPair", messageRecord);

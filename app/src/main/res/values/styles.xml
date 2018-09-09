@@ -8,6 +8,7 @@
         <item name="android:colorAccent">@color/theme_dialer_accent</item>
         <item name="android:navigationBarColor">@color/theme_dialer_primary</item>
         <item name="android:textColor">@color/black</item>
+        <!--<item name="android:listViewStyle">@style/ListView</item>-->
 
         <!-- android transitions -->
         <item name="android:windowContentTransitions">true</item>
@@ -15,7 +16,13 @@
         <item name="android:windowAllowReturnTransitionOverlap">true</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
+    <!--<style name="ListView" parent="@android:style/Widget.ListView">-->
+        <!--<item name="android:textColor">@color/black</item>-->
+        <!--<item name="android:cacheColorHint">@android:color/transparent</item>-->
+        <!--<item name="android:divider">@android:color/transparent</item>-->
+        <!--<item name="android:dividerHeight">0dp</item>-->
 
+    <!--</style>-->
 
     <style name="TransitionSampleActivity" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:colorPrimaryDark">@color/color_set_1_primary</item>

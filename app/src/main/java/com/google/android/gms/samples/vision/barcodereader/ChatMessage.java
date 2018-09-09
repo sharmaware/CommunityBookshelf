@@ -13,7 +13,9 @@ public class ChatMessage {
     private String messageUser;
     private long messageTime;
 
-    public ChatMessage(String messageText, String messageUser) {
+    private String messageUserRead;
+
+    public ChatMessage(String messageText, String messageUser ) {
         this.messageText = messageText;
         this.messageUser = messageUser;
 

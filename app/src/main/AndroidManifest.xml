@@ -60,8 +60,11 @@
             android:name=".BrowseActivity"
             android:label="@string/title_activity_browse" />
         <activity
-            android:name=".myBooksActivity"
+            android:name=".MyBooksActivity"
             android:label="@string/title_activity_my_books" />
+        <activity
+            android:name=".MyBookDisplayActivity"
+            android:label="@string/title_activity_my_book_display" />
         <activity
             android:name=".UploadActivity"
             android:label="@string/title_activity_upload" />
@@ -81,8 +84,13 @@
             android:name=".MessagingActivity"
             android:label="@string/title_activity_messaging"></activity>
         <activity
-            android:name=".MasterActivity"
-            android:label="MasterActivity"></activity>
+            android:name=".MessagingConversationActivity"
+            android:label="@string/title_activity_messaging_conversation"></activity>
+
+        <activity
+            android:name=".DashBoardActivity"
+            android:label="@string/title_activity_dashboard"></activity>
+
         <!--Firebase start-->
         <service
             android:name=".MyFirebaseInstanceIDService">

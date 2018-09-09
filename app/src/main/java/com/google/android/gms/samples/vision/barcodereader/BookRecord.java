@@ -53,6 +53,9 @@ public class BookRecord {
         this.status = status;
     }
 
+    public void setThumbnail(String status) {
+        this.thumbnail = thumbnail;
+    }
 
 
     public String getIsbn() {
@@ -89,6 +92,10 @@ public class BookRecord {
 
     public String getStatus() {
         return status;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
     }
 
     public String status;

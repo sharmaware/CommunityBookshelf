@@ -404,7 +404,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             if (success) {
 
                 finish();
-                Intent browseIntent = new Intent(LoginActivity.this, MasterActivity.class);
+                Intent browseIntent = new Intent(LoginActivity.this, DashBoardActivity.class);
                 startActivity(browseIntent);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

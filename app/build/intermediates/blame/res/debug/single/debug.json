@@ -324,12 +324,20 @@
         "source": "/Users/rajeshsharma/.gradle/caches/transforms-1/files-1.1/design-25.0.0.aar/8dad5c5ef1a6fcc59546e967a1508c82/res/drawable/navigation_empty_icon.xml"
     },
     {
+        "merged": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/res/merged/debug/layout_activity_dashboard.xml.flat",
+        "source": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/src/main/res/layout/activity_dashboard.xml"
+    },
+    {
         "merged": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/res/merged/debug/layout_abc_activity_chooser_view_list_item.xml.flat",
         "source": "/Users/rajeshsharma/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.0.0.aar/585bba4981db68dd1435a8d04e9a3430/res/layout/abc_activity_chooser_view_list_item.xml"
     },
     {
         "merged": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "/Users/rajeshsharma/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.0.0.aar/585bba4981db68dd1435a8d04e9a3430/res/drawable-xhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/res/merged/debug/layout_activity_my_book_display.xml.flat",
+        "source": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/src/main/res/layout/activity_my_book_display.xml"
     },
     {
         "merged": "/Users/rajeshsharma/Desktop/CommBS/CommunityBookshelf/app/build/intermediates/res/merged/debug/layout_abc_popup_menu_header_item_layout.xml.flat",
